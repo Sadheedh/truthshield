@@ -6,6 +6,16 @@ import torch.nn.functional as F
 
 app = FastAPI()
 
+from fastapi.middleware.cors import CORSMiddleware
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # or specify the frontend domain
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 # Load model and tokenizer from local folder
 model = DistilBertForSequenceClassification.from_pretrained("./distilbert_fakenews_model")
 tokenizer = DistilBertTokenizerFast.from_pretrained("./distilbert_fakenews_model")
