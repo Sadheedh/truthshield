@@ -3,7 +3,7 @@ set -e
 echo "Installing dependencies..."
 pip install -r requirements.txt
 echo "Downloading model.zip..."
-curl -L "https://drive.google.com/uc?export=download&id=12xlo1cEpPI8V6muAzc_uFWBk7hgfK3g6" -o model.zip
+curl -L "https://dl.dropbox.com/scl/fi/zljldm6e4v94lwtlhinv9/truthshield-api.zip?rlkey=i4rekent2i9ud2bey2mfp69qs&st=s21o4ej0&dl=1" -o model.zip
 echo "Checking file type..."
 file model.zip
 echo "Extracting model.zip..."
