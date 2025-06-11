@@ -28,3 +28,12 @@ def predict(claim: Claim):
         "confidence": round(confidence.item(), 2),
         "explanation": "AI prediction based on learned linguistic patterns."
     }
+
+from fastapi import FastAPI
+
+app = FastAPI()
+
+@app.get("/")
+def read_root():
+    return {"status": "Fake News Detection API is running!"}
+
