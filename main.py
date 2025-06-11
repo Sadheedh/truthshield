@@ -6,8 +6,8 @@ import torch.nn.functional as F
 
 app = FastAPI()
 
-model = DistilBertForSequenceClassification.from_pretrained("distilbert_fakenews_model")
-tokenizer = DistilBertTokenizerFast.from_pretrained("distilbert_fakenews_model")
+model = DistilBertForSequenceClassification.from_pretrained("./distilbert_fakenews_model")
+tokenizer = DistilBertTokenizerFast.from_pretrained("./distilbert_fakenews_model")
 model.eval()
 
 class Claim(BaseModel):
