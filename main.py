@@ -37,3 +37,12 @@ app = FastAPI()
 def read_root():
     return {"status": "Fake News Detection API is running!"}
 
+# ✅ Main route to make predictions
+@app.post("/predict")
+def predict(news: NewsInput):
+    inputs = tokenizer(news.text, return_tensors="pt", truncation=True, padding=True)
+    with torch.no_grad():
+        outputs = model(**inputs)
+        prediction = torch.argmax(outputs.logits, dim=1).item()
+    label = "Fake" if prediction == 1 else "Real"
+    return {"prediction": label}
