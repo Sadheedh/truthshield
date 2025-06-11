@@ -8,7 +8,7 @@ import os
 from serpapi import GoogleSearch
 
 # Adding SerpAPI
-SERPAPI_KEY = "993eefbdef9ee1603ad7aa7d83615c2b0410e208fd3c8e799cc1240d13473e0c"
+SERPAPI_KEY = os.getenv("SERPAPI_KEY")  # ⬅ secure way to load the API key
 
 def search_with_serpapi(query, num_results=3):
     if not SERPAPI_KEY:
